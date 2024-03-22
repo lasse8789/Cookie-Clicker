@@ -48,10 +48,10 @@ class Creature extends Entity{
 }
 
 class cookie extends Creature{
-  PImage cookie;
+  PImage cookieDesign;
   PVector target2;
   float speed2;
-  bold(PVector setPos, PVector setSize){
+  cookie(PVector setPos, PVector setSize){
     pos = setPos;
     size = setSize;
     cookieDesign = loadImage("cookie.png");
