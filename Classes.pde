@@ -1,3 +1,4 @@
+class Entity {
   String type = "entity";
   boolean remove = false;
   PVector pos;
