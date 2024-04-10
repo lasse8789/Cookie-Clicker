@@ -68,6 +68,11 @@ class cookie extends Creature{
   }
   void render(){
     //cookie animation on click
+    
+    //noter til senere:
+    //translate til pos.x og pos.y også tegne cookie med scale. for at få bedre animation
+    //brug "rotate()" til cursorsne
+    
     if (cookieanimation == 1){ 
       cookieDesign.resize(260,260);
       cookieanimation = 2;
