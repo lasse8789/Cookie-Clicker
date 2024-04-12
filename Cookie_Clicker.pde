@@ -1,5 +1,9 @@
 int cookies;
 int cookieanimation;
+int clickers;
+int biler;
+int traktors;
+int rumskibs;
 
 PImage clickerDesign;
 PImage bilDesign;
@@ -26,7 +30,6 @@ void setup(){
 }
 
 void draw(){
-  textSize(100);
   background(125);
   // LOADING DESIGN
   imageMode(CORNER);
@@ -38,7 +41,27 @@ void draw(){
   imageMode(CENTER);
   
   fill(0);
+  textSize(100);
   text("Cookies: " + cookies, width/2-200,height/2-100);
+  //antal upgrades man ejer
+  textSize(25);
+  text("Antal: " + clickers,200, 50);
+  text("Antal: " + biler,200, 250);
+  text("Antal: " + traktors,200,450);
+  text("Antal: " + rumskibs,200,650);
+  
+  //Køb knapper
+  fill(255,0,0);
+  rect(200,70,140,80);
+  rect(200,270,140,80);
+  rect(200,470,140,80);
+  rect(200,670,140,80);
+  fill(0);
+  textSize(75);
+  text("KØB",200,135);
+  text("KØB",200,335);
+  text("KØB",200,535);
+  text("KØB",200,735);
   
   player1.render();
   player1.update();
