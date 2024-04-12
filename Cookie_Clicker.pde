@@ -4,16 +4,20 @@ int clickers;
 int biler;
 int traktors;
 int rumskibs;
+int clickersAdd;
 
 PImage clickerDesign;
 PImage bilDesign;
 PImage traktorDesign;
 PImage rumskibDesign;
-cookie player1;
+cookie cookien;
+clicker cursor1;
 
 void setup(){
   size(1920, 1080);
-  player1 = new cookie(new PVector(width/2,150), new PVector(10,10));
+  cookien = new cookie(new PVector(width/2,150), new PVector(10,10));
+  cursor1 = new clicker(new PVector(width/2,300), new PVector(10,10));
+  
   cookieanimation = 0;
   //for later work
   cookies = 0;
@@ -50,6 +54,12 @@ void draw(){
   text("Antal: " + traktors,200,450);
   text("Antal: " + rumskibs,200,650);
   
+  textSize(20);
+  text("1x Pris: 10 Cookies", 300, 50);
+  text("1x Pris: 100 Cookies", 300, 250);
+  text("1x Pris: 1000 Cookies", 300, 450);
+  text("1x Pris: 5000 Cookies", 300, 650);
+  
   //Køb knapper
   fill(255,0,0);
   rect(200,70,140,80);
@@ -63,7 +73,13 @@ void draw(){
   text("KØB",200,535);
   text("KØB",200,735);
   
-  player1.render();
-  player1.update();
+  cookien.render();
+  cookien.update();
+  
+  if (clickers > 0){
+    cursor1.render();
+    cursor1.update();
+    
+  }
 
 }

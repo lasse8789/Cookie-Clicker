@@ -48,6 +48,29 @@ class Creature extends Entity{
   
 }
 
+class clicker extends Creature{
+  PImage clickerFlyvDesign;
+  PVector target2;
+  float speed2;
+  clicker(PVector setPos, PVector setSize){
+    pos = setPos;
+    size = setSize;
+    clickerFlyvDesign = loadImage("clickeren.png");
+    clickerFlyvDesign.resize(50,50);
+    
+    velocity = new PVector(0, 0);
+    
+  }
+  void update(){
+    pos.x += velocity.x;
+    pos.y += velocity.y;
+  }
+  void render(){
+    image(clickerFlyvDesign, pos.x, pos.y);
+  }
+  
+}
+
 class cookie extends Creature{
   PImage cookieDesign;
   PVector target2;
