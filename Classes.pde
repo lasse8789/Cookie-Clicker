@@ -1,3 +1,4 @@
+//Taget fra noget af klassens undervisnings materiale. Derfor classen hedder "Entity" og "Creature"
 class Entity {
   String type = "entity";
   boolean remove = false;

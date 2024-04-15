@@ -1,10 +1,15 @@
 int cookies;
 int cookieanimation;
 int clickers;
+int clickerPris;
 int biler;
+int bilerPris;
 int traktors;
+int traktorPris;
 int rumskibs;
+int rumskibPris;
 int clickersAdd;
+int købMode;
 
 PImage clickerDesign;
 PImage bilDesign;
@@ -30,6 +35,11 @@ void setup(){
   bilDesign.resize(500,200);
   clickerDesign = loadImage(sketchPath("Images/Clickerdesign.png"));
   clickerDesign.resize(500,200);
+  clickerPris = 10;
+  bilerPris = 150;
+  traktorPris = 2500;
+  rumskibPris = 50000;
+  købMode = 1;
   
   
 }
@@ -56,16 +66,36 @@ void draw(){
   text("Antal: " + rumskibs,200,650);
   
   textSize(20);
-  text("1x Pris: 10 Cookies", 300, 50);
-  text("1x Pris: 100 Cookies", 300, 250);
-  text("1x Pris: 1000 Cookies", 300, 450);
-  text("1x Pris: 5000 Cookies", 300, 650);
+  text(købMode + "x Pris: " + clickerPris*købMode + " Cookies", 300, 50);
+  text(købMode + "x Pris: " + bilerPris*købMode + " Cookies", 300, 250);
+  text(købMode + "x Pris: " + traktorPris*købMode + " Cookies", 300, 450);
+  text(købMode + "x Pris: " + rumskibPris*købMode + " Cookies", 300, 650);
   
   //Køb knapper
-  fill(255,0,0);
+
+  if (cookies < clickerPris*købMode){
+    fill(255,0,0);
+  } else {
+    fill(0,255,0);
+  }
   rect(200,70,140,80);
+  if (cookies < bilerPris*købMode){
+    fill(255,0,0);
+  } else {
+    fill(0,255,0);
+  }
   rect(200,270,140,80);
+  if (cookies < traktorPris*købMode){
+    fill(255,0,0);
+  } else {
+    fill(0,255,0);
+  }
   rect(200,470,140,80);
+  if (cookies < rumskibPris*købMode){
+    fill(255,0,0);
+  } else {
+    fill(0,255,0);
+  }
   rect(200,670,140,80);
   fill(0);
   textSize(75);
