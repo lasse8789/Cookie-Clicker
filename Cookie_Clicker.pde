@@ -12,22 +12,23 @@ PImage traktorDesign;
 PImage rumskibDesign;
 cookie cookien;
 clicker cursor1;
+clicker cursor2;
+clicker cursor3, cursor4, cursor5, cursor6;
 
 void setup(){
   size(1920, 1080);
   cookien = new cookie(new PVector(width/2,150), new PVector(10,10));
   cursor1 = new clicker(new PVector(width/2,300), new PVector(10,10));
-  
   cookieanimation = 0;
   //for later work
   cookies = 0;
-  traktorDesign = loadImage("traktordesign.png");
+  traktorDesign = loadImage(sketchPath("Images/traktordesign.png"));
   traktorDesign.resize(500,200);
-  rumskibDesign = loadImage("Rumskibdesign.png");
+  rumskibDesign = loadImage(sketchPath("Images/Rumskibdesign.png"));
   rumskibDesign.resize(500,200);
-  bilDesign = loadImage("Bildesign.png");
+  bilDesign = loadImage(sketchPath("Images/Bildesign.png"));
   bilDesign.resize(500,200);
-  clickerDesign = loadImage("Clickerdesign.png");
+  clickerDesign = loadImage(sketchPath("Images/Clickerdesign.png"));
   clickerDesign.resize(500,200);
   
   
@@ -74,12 +75,19 @@ void draw(){
   text("KØB",200,735);
   
   cookien.render();
-  cookien.update();
   
   if (clickers > 0){
-    cursor1.render();
-    cursor1.update();
-    
+    cursor1.roter();
+  //} if (clickers > 5){
+  //  cursor2.roter();
+  //} if (clickers > 10){
+  //  cursor3.roter();
+  //} if (clickers > 25){
+  //  cursor4.roter();
+  //} if (clickers > 50){
+  //  cursor5.roter();
+  //} if (clickers > 100){
+  //  cursor6.roter();
   }
 
 }
