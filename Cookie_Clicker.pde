@@ -6,27 +6,15 @@ int rumskibs, rumskibPris;
 int købMode;
 PImage clickerDesign, bilDesign, traktorDesign, rumskibDesign;
 cookie cookien;
-clicker cursor1, cursor2, cursor3, cursor4, cursor5, cursor6, cursor7, cursor8, cursor9, cursor10;
-ArrayList<clicker> arr;
+//clicker cursor1, cursor2, cursor3, cursor4, cursor5, cursor6, cursor7, cursor8, cursor9, cursor10;
+ArrayList<clicker> clickerArray;
 
 void setup(){
   size(1920, 1080);
   frameRate(60);
-  arr = new ArrayList<clicker>();
-  arr.add(new clicker(new PVector(width/2,300), new PVector(10,10)));
-  arr.add(new clicker(new PVector(width/2,300), new PVector(10,10)));
-  
+  clickerArray = new ArrayList<clicker>();
   cookien = new cookie(new PVector(width/2,150), new PVector(10,10));
-  cursor1 = new clicker(new PVector(width/2,300), new PVector(10,10));
-  cursor2 = new clicker(new PVector(width/2,300), new PVector(10,10));
-  cursor3 = new clicker(new PVector(width/2,300), new PVector(10,10));
-  cursor4 = new clicker(new PVector(width/2,300), new PVector(10,10));
-  cursor5 = new clicker(new PVector(width/2,300), new PVector(10,10));
-  cursor6 = new clicker(new PVector(width/2,300), new PVector(10,10));
-  cursor7 = new clicker(new PVector(width/2,300), new PVector(10,10));
-  cursor8 = new clicker(new PVector(width/2,300), new PVector(10,10));
-  cursor9 = new clicker(new PVector(width/2,300), new PVector(10,10));
-  cursor10 = new clicker(new PVector(width/2,300), new PVector(10,10));
+
   
   cookieanimation = 0;
   //for later work
@@ -113,33 +101,31 @@ void draw(){
   text("KØB",200,735);
   
   cookien.render();
-  
-  
-  for (clicker c : arr){
-    c.roter();
+  for (clicker x : clickerArray){
+    x.roter();
   }
   
-  if (clickers > 0){
-    cursor1.roter();
-  } if (clickers > 1){
-    cursor2.roter();
-  } if (clickers > 2){
-    cursor3.roter();
-  } if (clickers > 3){
-    cursor4.roter();
-  } if (clickers > 4){
-    cursor5.roter();
-  } if (clickers > 5){
-    cursor6.roter();
-  }if (clickers > 6){
-    cursor7.roter();
-  }if (clickers > 7){
-    cursor8.roter();
-  }if (clickers > 8){
-    cursor9.roter();
-  }if (clickers > 9){
-    cursor10.roter();
-  }
+  //if (clickers > 0){
+  //  cursor1.roter();
+  //} if (clickers > 1){
+  //  cursor2.roter();
+  //} if (clickers > 2){
+  //  cursor3.roter();
+  //} if (clickers > 3){
+  //  cursor4.roter();
+  //} if (clickers > 4){
+  //  cursor5.roter();
+  //} if (clickers > 5){
+  //  cursor6.roter();
+  //}if (clickers > 6){
+  //  cursor7.roter();
+  //}if (clickers > 7){
+  //  cursor8.roter();
+  //}if (clickers > 8){
+  //  cursor9.roter();
+  //}if (clickers > 9){
+  //  cursor10.roter();
+ // }
   
 
 

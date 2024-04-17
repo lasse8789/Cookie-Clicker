@@ -17,9 +17,19 @@ void mousePressed (){
     //CLICKERS
     if (mouseY > 70 && mouseY < 210){
       if (cookies >= clickerPris*købMode) {
-        clickers = clickers+1*købMode;
         cookies = cookies-clickerPris*købMode;
         clickerPris = clickerPris+2*købMode;
+        for (int ci = clickers; ci < 36; ci++){
+          if (ci < clickers+købMode){
+            clickerArray.add(new clicker(new PVector(width/2,300), new PVector(10,10)));
+          }
+        }
+        clickers = clickers+1*købMode;
+        
+        //if (clickers < 36){
+          //clickerArray.add(new clicker(new PVector(width/2,300), new PVector(10,10)));
+        //}
+
       }
     }
     //BILER
