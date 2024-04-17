@@ -1,29 +1,33 @@
-int cookies;
-int cookieanimation;
-int clickers;
-int clickerPris;
-int biler;
-int bilerPris;
-int traktors;
-int traktorPris;
-int rumskibs;
-int rumskibPris;
-int clickersAdd;
+int cookies, cookieanimation;
+int clickers, clickerPris, clickersAdd;
+int biler, bilerPris;
+int traktors, traktorPris;
+int rumskibs, rumskibPris;
 int købMode;
-
-PImage clickerDesign;
-PImage bilDesign;
-PImage traktorDesign;
-PImage rumskibDesign;
+PImage clickerDesign, bilDesign, traktorDesign, rumskibDesign;
 cookie cookien;
-clicker cursor1;
-clicker cursor2;
-clicker cursor3, cursor4, cursor5, cursor6;
+clicker cursor1, cursor2, cursor3, cursor4, cursor5, cursor6, cursor7, cursor8, cursor9, cursor10;
+ArrayList<clicker> arr;
 
 void setup(){
   size(1920, 1080);
+  frameRate(60);
+  arr = new ArrayList<clicker>();
+  arr.add(new clicker(new PVector(width/2,300), new PVector(10,10)));
+  arr.add(new clicker(new PVector(width/2,300), new PVector(10,10)));
+  
   cookien = new cookie(new PVector(width/2,150), new PVector(10,10));
   cursor1 = new clicker(new PVector(width/2,300), new PVector(10,10));
+  cursor2 = new clicker(new PVector(width/2,300), new PVector(10,10));
+  cursor3 = new clicker(new PVector(width/2,300), new PVector(10,10));
+  cursor4 = new clicker(new PVector(width/2,300), new PVector(10,10));
+  cursor5 = new clicker(new PVector(width/2,300), new PVector(10,10));
+  cursor6 = new clicker(new PVector(width/2,300), new PVector(10,10));
+  cursor7 = new clicker(new PVector(width/2,300), new PVector(10,10));
+  cursor8 = new clicker(new PVector(width/2,300), new PVector(10,10));
+  cursor9 = new clicker(new PVector(width/2,300), new PVector(10,10));
+  cursor10 = new clicker(new PVector(width/2,300), new PVector(10,10));
+  
   cookieanimation = 0;
   //for later work
   cookies = 0;
@@ -52,8 +56,11 @@ void draw(){
   image(bilDesign,0,200);
   image(traktorDesign,0,400);
   image(rumskibDesign,0,600);
-  //
   imageMode(CENTER);
+  
+  if (frameCount % 60 == 0){
+    add();
+  }
   
   fill(0);
   textSize(100);
@@ -65,6 +72,7 @@ void draw(){
   text("Antal: " + traktors,200,450);
   text("Antal: " + rumskibs,200,650);
   
+  //pris skilte
   textSize(20);
   text(købMode + "x Pris: " + clickerPris*købMode + " Cookies", 300, 50);
   text(købMode + "x Pris: " + bilerPris*købMode + " Cookies", 300, 250);
@@ -106,18 +114,33 @@ void draw(){
   
   cookien.render();
   
+  
+  for (clicker c : arr){
+    c.roter();
+  }
+  
   if (clickers > 0){
     cursor1.roter();
-  //} if (clickers > 5){
-  //  cursor2.roter();
-  //} if (clickers > 10){
-  //  cursor3.roter();
-  //} if (clickers > 25){
-  //  cursor4.roter();
-  //} if (clickers > 50){
-  //  cursor5.roter();
-  //} if (clickers > 100){
-  //  cursor6.roter();
+  } if (clickers > 1){
+    cursor2.roter();
+  } if (clickers > 2){
+    cursor3.roter();
+  } if (clickers > 3){
+    cursor4.roter();
+  } if (clickers > 4){
+    cursor5.roter();
+  } if (clickers > 5){
+    cursor6.roter();
+  }if (clickers > 6){
+    cursor7.roter();
+  }if (clickers > 7){
+    cursor8.roter();
+  }if (clickers > 8){
+    cursor9.roter();
+  }if (clickers > 9){
+    cursor10.roter();
   }
+  
+
 
 }

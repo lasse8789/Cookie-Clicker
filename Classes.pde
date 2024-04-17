@@ -53,8 +53,8 @@ class clicker extends Creature{
   PImage clickerFlyvDesign;
   PVector target2;
   float speed2;
-  
   int offSet = (int)random(360);
+  
   clicker(PVector setPos, PVector setSize){
     pos = setPos;
     size = setSize;
@@ -68,9 +68,11 @@ class clicker extends Creature{
 
   
   void roter(){
+    pushMatrix();
     translate(width/2,150);
     rotate(radians(frameCount+offSet));
     image(clickerFlyvDesign, 0, 165);
+    popMatrix();
   //void render(){
     //image(clickerFlyvDesign, pos.x, pos.y);
   //}    
