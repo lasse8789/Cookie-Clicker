@@ -1,4 +1,4 @@
-int cookies, cookieanimation;
+int cookies, cookiesPs, cookieanimation;
 int clickers, clickerPris, clickersAdd;
 int biler, bilerPris;
 int traktors, traktorPris;
@@ -47,11 +47,13 @@ void draw(){
   imageMode(CENTER);
   
   if (frameCount % 60 == 0){
-    add();
+    adding();
   }
+  cookiesPs = add();
   
-  fill(0);
   textSize(100);
+  fill(0);
+  text("Cookies/s: " + cookiesPs, width/2-200,height/2+100);
   text("Cookies: " + cookies, width/2-200,height/2-100);
   //antal upgrades man ejer
   textSize(25);
