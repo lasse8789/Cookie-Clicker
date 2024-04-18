@@ -3,7 +3,7 @@ int clickers, clickerPris, clickersAdd;
 int biler, bilerPris;
 int traktors, traktorPris;
 int rumskibs, rumskibPris;
-int købMode;
+int købMode, multiplier, prestige, prestigePris;
 PImage clickerDesign, bilDesign, traktorDesign, rumskibDesign;
 cookie cookien;
 //clicker cursor1, cursor2, cursor3, cursor4, cursor5, cursor6, cursor7, cursor8, cursor9, cursor10;
@@ -32,6 +32,9 @@ void setup(){
   traktorPris = 2500;
   rumskibPris = 50000;
   købMode = 1;
+  multiplier = 1;
+  prestige = 0;
+  prestigePris = 1000000;
   
   
 }
@@ -47,9 +50,9 @@ void draw(){
   imageMode(CENTER);
   
   if (frameCount % 60 == 0){
-    adding();
+    addCookies();
   }
-  cookiesPs = add();
+  cookiesPs = addScreen();
   
   textSize(100);
   fill(0);
@@ -68,6 +71,28 @@ void draw(){
   text(købMode + "x Pris: " + bilerPris*købMode + " Cookies", 300, 250);
   text(købMode + "x Pris: " + traktorPris*købMode + " Cookies", 300, 450);
   text(købMode + "x Pris: " + rumskibPris*købMode + " Cookies", 300, 650);
+  
+  //Prestige og multiplier
+  fill(255,0,255);
+  rect(width-300,0,300,150);
+  fill(0);
+  textSize(45);
+  text("Multiplier",width-225,50);
+  text(multiplier,width-150,120);
+  fill(255,0,0);
+  rect(width-300,150,300,150);
+  fill(0);
+  textSize(45);
+  text("Prestige: " + prestige,width-225,200);
+  int n = prestigePris/1000000;
+  text("Pris: " + n + " Mil", width-225,270);
+  
+  if (cookies < prestigePris){
+    fill(255,0,0);
+  } else {
+    fill(0,255,0);
+  }
+  rect(width/2-150,height-300,300,80);
   
   //Køb knapper
 
@@ -101,6 +126,7 @@ void draw(){
   text("KØB",200,335);
   text("KØB",200,535);
   text("KØB",200,735);
+  text("PRESTIGE", width/2-155,height-230);
   
   cookien.render();
   for (clicker x : clickerArray){

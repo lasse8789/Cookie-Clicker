@@ -2,12 +2,21 @@ void mousePressed (){
   if (mouseX < width/2+140 && mouseY < 275){
     if (mouseX > width/2-140 && mouseY > 20){
       if (clickers < 1){
-        cookies++;
+        cookies = cookies+1*multiplier;
       } else {
         clickersAdd = 1+clickers;
-        cookies = cookies+clickersAdd;
+        cookies = cookies+clickersAdd*multiplier;
       }
       cookieanimation = 1;
+    }
+    
+  }
+  //PRESTIGE KNAP
+  if (mouseX > width/2-150 && mouseX < width/2+150){
+    if (mouseY > height-300 && mouseY < height-220){
+      if (cookies >= prestigePris){
+        prestige();
+      }
     }
     
   }
