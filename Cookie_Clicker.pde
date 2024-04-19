@@ -5,9 +5,12 @@ int traktors, traktorPris;
 int rumskibs, rumskibPris;
 int købMode, multiplier, prestige, prestigePris;
 PImage clickerDesign, bilDesign, traktorDesign, rumskibDesign;
+boolean popupScreen;
 cookie cookien;
 //clicker cursor1, cursor2, cursor3, cursor4, cursor5, cursor6, cursor7, cursor8, cursor9, cursor10;
 ArrayList<clicker> clickerArray;
+//Timer til når man prestiger som sørger for at popup skærmen er på i 3 sekunder
+int timer;
 
 void setup(){
   size(1920, 1080);
@@ -52,6 +55,7 @@ void draw(){
   if (frameCount % 60 == 0){
     addCookies();
   }
+  
   cookiesPs = addScreen();
   
   textSize(100);
@@ -131,6 +135,17 @@ void draw(){
   cookien.render();
   for (clicker x : clickerArray){
     x.roter();
+  }
+  
+  if (popupScreen == true){
+    if ((frameCount - timer) % 180 == 0){
+      popupScreen = false;
+    }
+    fill(0, 100);
+    rect(0,0,width,height);
+    fill(255);
+    text("PRESTIGED TIL " + prestige, width/2-100,height/2);
+    
   }
   
   //if (clickers > 0){

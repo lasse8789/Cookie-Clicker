@@ -1,15 +1,15 @@
 int addToCookie;
 public int addScreen(){
-  addToCookie = biler*5;
-  addToCookie = traktors*100+addToCookie;
+  addToCookie = biler*25;
+  addToCookie = traktors*500+addToCookie;
   addToCookie = rumskibs*5000+addToCookie;
   addToCookie = addToCookie*multiplier;
   return addToCookie;
 }
 
 public void addCookies(){
-  addToCookie = biler*5;
-  addToCookie = traktors*100+addToCookie;
+  addToCookie = biler*25;
+  addToCookie = traktors*500+addToCookie;
   addToCookie = rumskibs*5000+addToCookie;
   addToCookie = addToCookie*multiplier;
   cookies = cookies+addToCookie;
@@ -29,7 +29,8 @@ public void prestige(){
   bilerPris = 150;
   traktorPris = 2500;
   rumskibPris = 50000;
-  
-  //MÅSKE EN POP UP SCREEN?
+  clickerArray = new ArrayList<clicker>();
+  popupScreen = true;
+  timer = frameCount;
   
 }
