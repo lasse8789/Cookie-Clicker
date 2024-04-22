@@ -85,23 +85,6 @@ void keyPressed(){
     }
   }
   if ((key == 's')){
-    String word1 = str(cookies);
-    String word2 = str(prestige);
-    String word3 = str(prestigePris);
-    String word4 = str(multiplier);
-    String word5 = str(clickers);
-    String word6 = str(clickerPris);
-    String word7 = str(biler);
-    String word8 = str(bilerPris);
-    String word9 = str(traktors);
-    String word10 = str(traktorPris);
-    String word11 = str(rumskibs);
-    String word12 = str(rumskibPris);
-    String words = word1 + " " + word2 + " " + word3 + " " + word4 + " " + word5 + " " + word6 + " " + word7 + " " + word8 + " " + word9 + " " + word10 + " " + word11 + " " + word12;
-    String[] stringArray = split(words, ' ');
-    saveStrings("data.txt", stringArray);
-    saveScreen = true;
-    timerSave = frameCount;
-    
+    saveGame();
   }
 }

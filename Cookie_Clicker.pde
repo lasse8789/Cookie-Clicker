@@ -94,10 +94,7 @@ void setup(){
   bilDesign = loadImage(sketchPath("Images/Bildesign.png"));
   bilDesign.resize(500,200);
   clickerDesign = loadImage(sketchPath("Images/Clickerdesign.png"));
-  clickerDesign.resize(500,200);
-
-  
-  
+  clickerDesign.resize(500,200); 
 }
 
 void draw(){
@@ -210,10 +207,13 @@ void draw(){
     if ((frameCount - timerSave) % 120 == 0){
       saveScreen = false;
     }
-    fill(0, 100);
-    rect(0,0,width,height);
     fill(255);
-    text("GAME SAVED", width/2-100,height/2);
+    text("GAME SAVED", width-400,height-200);
+  }
+  
+  //AutoSave
+  if (frameCount %3600 == 0) {
+    saveGame();
   }
   
   //if (clickers > 0){
@@ -238,6 +238,11 @@ void draw(){
   //  cursor10.roter();
  // }
   
+  
 
+}
 
+void exit(){
+   saveGame();
+   super.exit();
 }
