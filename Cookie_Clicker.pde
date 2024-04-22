@@ -6,22 +6,87 @@ int rumskibs, rumskibPris;
 int købMode, multiplier, prestige, prestigePris;
 PImage clickerDesign, bilDesign, traktorDesign, rumskibDesign;
 boolean popupScreen;
+boolean saveScreen;
 cookie cookien;
 //clicker cursor1, cursor2, cursor3, cursor4, cursor5, cursor6, cursor7, cursor8, cursor9, cursor10;
 ArrayList<clicker> clickerArray;
-//Timer til når man prestiger som sørger for at popup skærmen er på i 3 sekunder
+//Timer til når man prestiger som sørger for at popup skærmen er på i 3 sekunder og til save screen
 int timer;
+int timerSave;
+
+
 
 void setup(){
   size(1920, 1080);
   frameRate(60);
   clickerArray = new ArrayList<clicker>();
   cookien = new cookie(new PVector(width/2,150), new PVector(10,10));
-
   
-  cookieanimation = 0;
-  //for later work
+  //default setting
+  købMode = 1;
   cookies = 0;
+  prestige = 0;
+  clickers = 0;
+  biler = 0;
+  prestigePris = 1000000;
+  multiplier = 1;
+  clickerPris = 10;
+  bilerPris = 150;
+  traktorPris = 2500;
+  rumskibPris = 50000;
+  
+  //loading saved data
+
+  String[] data = loadStrings("data.txt");
+  if (data != null) {
+    for (int i = 0 ; i < data.length; i++){
+      if (int(data[i]) > 0) {
+        if (i == 0){
+          cookies = int(data[i]);
+        } else if (i == 1){
+          prestige = int(data[1]);
+        } else if (i == 4){
+          clickers = int(data[4]);
+        } else if (i == 6){
+          biler = int(data[6]);
+        } else if (i == 8) {
+          traktors = int (data[8]);
+        } else if (i == 10) {
+          rumskibs = int (data[10]);
+        }
+      } else if (int(data[i]) > 1000000) {
+        if (i == 2) {
+          prestigePris = int(data[2]);
+        }
+      } else if (int(data[i]) > 1) {
+        if (i == 3) {
+          multiplier = int(data[3]);
+        }
+      } else if (int(data[i]) > 10) {
+        if (i == 5) {
+          clickerPris = int(data[i]);
+        }  
+      } else if (int(data[i]) > 150) {
+        if (i == 7) {
+          bilerPris = int(data[i]);
+        }
+      } else if (int(data[i]) > 2500) {
+        if (i == 9) {
+          traktorPris = int(data[i]);
+        }
+      } else if (int(data[i]) > 50000) {
+        if (i == 11) {
+          rumskibPris = int(data[i]);
+        }
+      }
+    
+      
+    }
+  }
+  
+  
+  //loading animation and images
+  cookieanimation = 0;
   traktorDesign = loadImage(sketchPath("Images/traktordesign.png"));
   traktorDesign.resize(500,200);
   rumskibDesign = loadImage(sketchPath("Images/Rumskibdesign.png"));
@@ -30,14 +95,7 @@ void setup(){
   bilDesign.resize(500,200);
   clickerDesign = loadImage(sketchPath("Images/Clickerdesign.png"));
   clickerDesign.resize(500,200);
-  clickerPris = 10;
-  bilerPris = 150;
-  traktorPris = 2500;
-  rumskibPris = 50000;
-  købMode = 1;
-  multiplier = 1;
-  prestige = 0;
-  prestigePris = 1000000;
+
   
   
 }
@@ -146,6 +204,16 @@ void draw(){
     fill(255);
     text("PRESTIGED TIL " + prestige, width/2-100,height/2);
     
+  }
+  
+  if (saveScreen == true) {
+    if ((frameCount - timerSave) % 120 == 0){
+      saveScreen = false;
+    }
+    fill(0, 100);
+    rect(0,0,width,height);
+    fill(255);
+    text("GAME SAVED", width/2-100,height/2);
   }
   
   //if (clickers > 0){
